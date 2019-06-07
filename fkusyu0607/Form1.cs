@@ -15,6 +15,9 @@ namespace fkusyu0607
         int vx = -10;
         int vy = -10;
 
+        Point cpos = MousePosition;
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -27,6 +30,11 @@ namespace fkusyu0607
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            cpos = PointToClient(cpos);
+
+            textBox1.Left = cpos.X; //+ textBox1.Right / 2;
+            textBox1.Top = cpos.Y; //+ textBox1.Bottom / 2;
+
             label1.Left += vx;
             label1.Top += vy;
 
@@ -48,6 +56,11 @@ namespace fkusyu0607
             }
         }
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
